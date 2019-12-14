@@ -9,13 +9,15 @@
 
 #include <nlohmann/json.hpp>
 
-#include "data-point.h"
+#include "DataPoint.h"
+#include "ResultCodeEnum.h"
 
+using namespace TakeHomeProblem;
 using namespace units::literals;
 
-bool readDataPoints(const std::string &filename, std::vector<ValueConvert::DataPoint> &dataPoints)
+ResultCode readDataPoints(const std::string &filename, std::vector<DataPoint> &dataPoints)
 {
-   bool success = true;
+   ResultCode result = ResultCode::Success;
 
    try
    {
@@ -27,22 +29,21 @@ bool readDataPoints(const std::string &filename, std::vector<ValueConvert::DataP
          dataPointsFile >> json;
          dataPointsFile.close();
 
-         std::vector<ValueConvert::DataPoint> dataPoints;
          json.at("dataPoints").get_to(dataPoints);
       }
       else
       {
          std::cerr << "Unable to open data points file (File: " << filename << ")" << std::endl;
-         success = false;
+         result = ResultCode::Error;
       }
    }
    catch(const nlohmann::detail::exception& e)
    {
       std::cerr << "Failed to parse JSON: " << e.what() << std::endl;
-      success = false;
+      result = ResultCode::Error;
    }
 
-   return success;
+   return result;
 }
 
 int main(int argc, char** argv)
@@ -51,9 +52,9 @@ int main(int argc, char** argv)
 
    if (argc == 2)
    {
-      std::vector<ValueConvert::DataPoint> dataPoints;
+      std::vector<DataPoint> dataPoints;
 
-      if (readDataPoints(argv[1], dataPoints))
+      if (readDataPoints(argv[1], dataPoints) == ResultCode::Success)
       {
       }
       else

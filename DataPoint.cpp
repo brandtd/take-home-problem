@@ -1,9 +1,9 @@
-#include "data-point.h"
+#include "DataPoint.h"
 
 using namespace units::temperature;
 using namespace units::voltage;
 
-namespace ValueConvert
+namespace TakeHomeProblem
 {
 
 void to_json(nlohmann::json &json, const DataPoint &dataPoint)

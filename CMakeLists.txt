@@ -17,10 +17,17 @@ set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 
 add_executable(value-convert
    main.cpp
-   data-point.cpp)
+   DataPoint.cpp
+   TemperatureVoltageConverter.cpp)
 target_link_libraries(value-convert
    nlohmann_json::nlohmann_json
    units)
+target_compile_options(value-convert PRIVATE
+   $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:AppleClang>,$<CXX_COMPILER_ID:GNU>>:
+      -Wall -Wextra -Werror>
+   $<$<CXX_COMPILER_ID:MSVC>:
+      /W4 /WX>
+   )
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})

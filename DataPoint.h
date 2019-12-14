@@ -3,7 +3,7 @@
 #include <nlohmann/json.hpp>
 #include <units.h>
 
-namespace ValueConvert
+namespace TakeHomeProblem
 {
    struct DataPoint
    {
