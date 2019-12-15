@@ -17,7 +17,7 @@ TEST(TemperatureVoltageConverterTests, ThrowsExceptionIfNotEnoughCalibrationPoin
       {kelvin_t(1), volt_t(1)}
    });
 
-   ASSERT_THROW(TemperatureVoltageConverter object(calibration_points), std::exception);
+   ASSERT_THROW(TemperatureVoltageConverter object(calibration_points), std::invalid_argument);
 }
 
 }

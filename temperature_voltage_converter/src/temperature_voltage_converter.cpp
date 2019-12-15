@@ -60,7 +60,7 @@ TemperatureVoltageConverter::TemperatureVoltageConverter(const std::vector<Calib
 {
    if (calibration_points.size() < 2)
    {
-      throw std::exception("Need at least two calibration points");
+      throw std::invalid_argument("Need at least two calibration points");
    }
 
    std::sort(
