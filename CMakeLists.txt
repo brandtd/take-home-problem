@@ -7,16 +7,17 @@ set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 set(JSON_BuildTests OFF CACHE INTERNAL "")
 set(BUILD_TESTS OFF CACHE INTERNAL "")
+set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 
 add_subdirectory(3rdParty/json)
 add_subdirectory(3rdParty/units)
-add_subdirectory(src)
-
-set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 add_subdirectory(3rdParty/gtest)
-add_subdirectory(test)
+
 include(CTest)
 enable_testing()
+
+add_subdirectory(temperature_voltage_converter)
+add_subdirectory(take_home_problem)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})

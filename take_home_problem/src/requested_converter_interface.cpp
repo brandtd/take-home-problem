@@ -1,4 +1,4 @@
-#include "take_home_problem.h"
+#include "requested_converter_interface.h"
 
 #include "i_temperature_voltage_converter.h"
 
@@ -8,17 +8,17 @@ using namespace units::voltage;
 namespace TakeHomeProblem
 {
 
-TakeHomeExample(ITemperatureVoltageConverter converter)
+RequestedConverterInterface::RequestedConverterInterface(const ITemperatureVoltageConverter &converter)
 : converter_(converter)
 {
 }
 
-double TakeHomeExample::convertmvToK(double millivolts) const
+double RequestedConverterInterface::convertmvToK(double millivolts) const
 {
    return units::unit_cast<double>(converter_.convert(millivolt_t(millivolts)));
 }
 
-double TakeHomeExample::convertKtomV(double kelvin) const
+double RequestedConverterInterface::convertKtomV(double kelvin) const
 {
    return units::unit_cast<double>(converter_.convert(kelvin_t(kelvin)));
 }

@@ -18,6 +18,8 @@ int main(int argc, char** argv)
       if (CalibrationPointFile::LoadCalibrationPoints(argv[1], calibration_points) == ResultCode::Success)
       {
          TemperatureVoltageConverter converter(calibration_points);
+
+         // ... do something with converter ...
       }
       else
       {

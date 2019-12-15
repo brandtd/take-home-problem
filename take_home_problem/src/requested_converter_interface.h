@@ -4,15 +4,15 @@ namespace TakeHomeProblem
 {
    class ITemperatureVoltageConverter;
 
-   class TakeHomeExample
+   class RequestedConverterInterface
    {
    public:
-      TakeHomeExample(ITemperatureVoltageConverter converter);
+      RequestedConverterInterface(const ITemperatureVoltageConverter &converter);
 
       double convertmvToK(double millivolts) const;
       double convertKtomV(double kelvin) const;
 
    private:
-      ITemperatureVoltageConverter &converter_;
+      const ITemperatureVoltageConverter &converter_;
    };
 }

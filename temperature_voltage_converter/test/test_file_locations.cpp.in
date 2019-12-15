@@ -4,5 +4,4 @@ namespace TakeHomeProblemTests
 {
    const std::string TestFileLocations::kValidJsonFileName("@VALID_JSON_FILE_PATH@");
    const std::string TestFileLocations::kInvalidJsonFileName("@INVALID_JSON_FILE_PATH@");
-   const std::string TestFileLocations::kDataSheetCalibrationPointsFileName("@DATASHEET_JSON_FILE_PATH@");
 }

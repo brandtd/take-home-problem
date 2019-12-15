@@ -1,0 +1,6 @@
+#include "calibration_file_location.h"
+
+namespace TakeHomeProblemTests
+{
+   const std::string CalibrationFileLocation::kJsonFileName("@DATASHEET_JSON_FILE_PATH@");
+}

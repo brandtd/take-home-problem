@@ -7,7 +7,7 @@
 
 namespace TakeHomeProblem
 {
-   class TemperatureVoltageConverter : ITemperatureVoltageConverter
+   class TemperatureVoltageConverter : public ITemperatureVoltageConverter
    {
    public:
       TemperatureVoltageConverter(const std::vector<CalibrationPoint> &calibration_points);

@@ -2,8 +2,6 @@
 
 #include <units.h>
 
-#include "result_code_enum.h"
-
 namespace TakeHomeProblem
 {
    class ITemperatureVoltageConverter
