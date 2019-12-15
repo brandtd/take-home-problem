@@ -2,8 +2,8 @@
 
 A problem is presented with the following requirements:
 
-1. Create an object with two functions, `convertmVtoK` and `convertKtomV`
-2. The object can have an expensive constructor, but its convert methods must perform well in an embedded system
+1. Define a class with two functions, `convertmVtoK` and `convertKtomV`
+2. The class can have an expensive constructor, but its convert methods must perform well in an embedded system
 3. Demonstrate good OOP principles
 
 The convert methods are intended to convert between voltage and temperature values to support a thermal sensor. That sensor is expected to have a well-measured but non-linear response, similar to:
@@ -24,6 +24,14 @@ First, a few assumptions are made:
 
 ## Solution
 
+Good starting points are the
+
+- [example_main.cpp](take_home_problem/src/example_main.cpp)
+- [requested_converter_interface.h](take_home_problem/src/requested_converter_interface.h)
+- [temperature_voltage_converter.h](temperature_voltage_converter/src/temperature_voltage_converter.h)
+  
+files.
+
 This repo works the problem by:
 
 1. Using strongly typed objects to handle measurement values.
@@ -41,11 +49,11 @@ This repo works the problem by:
 
 ## Verification
 
-The solution using some GTest unit tests to verify expected behaviors.
+The solution uses some GTest unit tests with hardcoded expected values to verify expected behaviors.
 
 ## 3rd Party Libraries
 
-This code makes use of some pretty great libraries to help with parsing the input file and ensuring unit values are handled correctly. Boost was left out just because how painful it can be to include boost. I always find it a pain setting up where boost is installed. The 3rd party libraries used in this project are nice and simple enough that they can be added as subtrees to the repo.
+This code makes use of some pretty great libraries to help with parsing the input file and ensuring unit values are handled correctly. Boost was left out because of how painful it can be to include; I always find it a pain setting up where boost is installed. The 3rd party libraries used in this project are nice enough that they can be added as subtrees to the repo.
 
 ### Units
 https://github.com/nholthaus/units
